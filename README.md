@@ -1,61 +1,100 @@
-# da-algorithm
+# Deferred Acceptance (DA) Algorithm Implementation
 
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+## Overview
 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
+This project implements the Deferred Acceptance (DA) algorithm, also known as the Gale-Shapley algorithm, for solving stable matching problems. The implementation is designed to handle multiple acceptances and uses Excel files for input and output, making it user-friendly for those familiar with spreadsheet software.
 
-"hoge"が何かを簡潔に紹介する
+## Features
 
-# DEMO
+- Implements the Deferred Acceptance algorithm for stable matching
+- Supports multiple acceptances (e.g., schools accepting multiple students)
+- Reads preferences and capacities from Excel files
+- Outputs matching results to an Excel file
+- Provides clear, commented code for easy understanding and modification
 
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+## Requirements
 
-# Features
+- Python 3.6 or higher
+- openpyxl library
 
-"hoge"のセールスポイントや差別化などを説明する
+## Installation
 
-# Requirement
+1. Clone this repository:
+   ```
+   git clone https://github.com/Krminfinity/da-algorithm.git
+   cd da-algorithm
+   ```
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
+2. Install the required library:
+   ```
+   pip install openpyxl
+   ```
 
-* huga 3.5.2
-* hogehuga 1.0.2
+## Usage
 
-# Installation
+1. Prepare an Excel file named `matching_data.xlsx` with the following sheets:
+   - `Proposers Preferences`: List of proposers and their preferences
+   - `Acceptors Preferences`: List of acceptors and their preferences
+   - `Acceptors Capacities`: List of acceptors and their capacities
 
-Requirementで列挙したライブラリなどのインストール方法を説明する
+2. Run the script:
+   ```
+   python da_algorithm.py
+   ```
 
-```bash
-pip install huga_package
+3. The results will be displayed in the console and saved in `matching_results.xlsx`.
+
+## Input File Format
+
+The `matching_data.xlsx` file should be structured as follows:
+
+1. `Proposers Preferences` sheet:
+   ```
+   Proposer | 1st Choice | 2nd Choice | 3rd Choice | ...
+   A        | X          | Y          | Z          | ...
+   B        | Z          | Y          | X          | ...
+   C        | Y          | Z          | X          | ...
+   ```
+
+2. `Acceptors Preferences` sheet:
+   ```
+   Acceptor | 1st Choice | 2nd Choice | 3rd Choice | ...
+   X        | B          | A          | C          | ...
+   Y        | C          | B          | A          | ...
+   Z        | A          | C          | B          | ...
+   ```
+
+3. `Acceptors Capacities` sheet:
+   ```
+   Acceptor | Capacity
+   X        | 2
+   Y        | 1
+   Z        | 2
+   ```
+
+## Output
+
+The script generates an Excel file named `matching_results.xlsx` with the following format:
+
+```
+Acceptor | Matched Proposers
+X        | A, B
+Y        | C
+Z        | D, E
 ```
 
-# Usage
+## Contributing
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+Contributions to improve the algorithm or extend its functionality are welcome. Please feel free to submit pull requests or open issues to discuss potential changes.
 
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
+## License
 
-# Note
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-注意点などがあれば書く
+## Acknowledgments
 
-# Author
+- This implementation is based on the Deferred Acceptance algorithm described by David Gale and Lloyd Shapley in their 1962 paper "College Admissions and the Stability of Marriage".
 
-作成情報を列挙する
+## Contact
 
-* 作成者
-* 所属
-* E-mail
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
+If you have any questions or feedback, please open an issue on this GitHub repository.
